@@ -1,89 +1,116 @@
-/**
- * 輪播圖元件類別
- * 提供圖片或內容的循環播放功能
- */
 export class Carousel {
-  /** 目前顯示項目的索引 */
   #currentIndex: number = 0;
-  /** 輪播容器元素 */
-  private carouselContainer: Element | null;
-  /** 所有輪播項目的節點列表 */
-  private items: NodeListOf<Element>;
+  private carouselContainer: HTMLElement | null;
+  private carouselSlide: HTMLElement | null;
+  private items: HTMLElement[] = [];
+  private dots: HTMLButtonElement[] = [];
 
-  /**
-   * 建立輪播圖實例
-   * @param containerSelector 輪播容器的CSS選擇器，預設為".carousel-container"
-   * @throws {Error} 當找不到指定的輪播容器時拋出錯誤
-   */
-  constructor(containerSelector: string = ".carousel-container") {
-    this.carouselContainer = document.querySelector(containerSelector);
+  constructor(
+    containerSelector: string = ".carousel__container",
+    slideSelector: string = ".carousel__slide"
+  ) {
+    this.carouselContainer =
+      document.querySelector<HTMLElement>(containerSelector);
     if (!this.carouselContainer) {
       throw new Error(`找不到選擇器為 "${containerSelector}" 的輪播容器`);
     }
-    this.items = this.carouselContainer.querySelectorAll(".carousel-item");
-    
-    this.layoutItems();
-    this.bindEvents();
+
+    this.carouselSlide =
+      this.carouselContainer.querySelector<HTMLElement>(slideSelector);
+    if (!this.carouselSlide) {
+      throw new Error(`找不到選擇器為 "${slideSelector}" 的輪播幻燈片`);
+    }
+
+    this.wrapItem(); // 先包裝 + 建立 dots
+    this.initNavigation(); // 再綁定左右按鈕
+    this.layout(); // 再 layout
+    this.carouselSlide.classList.remove("hidden");
   }
-  /**
-   * 佈局輪播項目
-   * 根據當前索引設置每個項目的位置
-   * @private
-   */
-  private layoutItems(): void {
-    const fixedIndex = this.#currentIndex % this.items.length;
+
+  /** 綁定左右按鈕 **/
+  private initNavigation() {
+    if (!this.carouselContainer) return;
+    const nextButton = this.carouselContainer.querySelector<HTMLButtonElement>(
+      ".carousel__nav.next"
+    );
+    const prevButton = this.carouselContainer.querySelector<HTMLButtonElement>(
+      ".carousel__nav.prev"
+    );
+
+    nextButton && (nextButton.onclick = () => this.nextItem());
+    prevButton && (prevButton.onclick = () => this.prevItem());
+  }
+
+  /** 包裝每個 item 並生成 dots **/
+  private wrapItem() {
+    if (!this.carouselSlide || !this.carouselContainer) return;
+
+    const children = Array.from(this.carouselSlide.children);
+    this.items = []; // 清掉舊資料
+
+    children.forEach((child, index) => {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("carousel__item");
+
+      this.carouselSlide!.replaceChild(wrapper, child);
+      wrapper.appendChild(child);
+
+      this.items.push(wrapper as HTMLElement);
+
+      const dot = document.createElement("button");
+      dot.classList.add("carousel__nav", "dot");
+      dot.onclick = () => {
+        if (index === this.currentIndex) return;
+        this.currentIndex = index;
+      };
+
+      this.dots.push(dot);
+      this.carouselContainer!.appendChild(dot);
+    });
+  }
+
+  private layout(): void {
+    const len = this.items.length;
+    const fixedIndex = ((this.#currentIndex % len) + len) % len;
+
     this.items.forEach((item, index) => {
       const offset = index - fixedIndex;
-      (item as HTMLElement).style.transform = `translateX(${offset * 100}%)`;
+      item.style.transform = `translateX(${offset * 100}%)`;
     });
+
+    this.dots.forEach((dot, index) => {
+      const offset = index - fixedIndex;
+      dot.classList.toggle("active", index === fixedIndex);
+      dot.style.transform = `translateX(${offset * 1}rem)`;
+    });
+
     this.carouselContainer?.setAttribute("data-index", fixedIndex.toString());
   }
 
-  /**
-   * 綁定事件監聽器
-   * 為上一個和下一個按鈕添加點擊事件
-   * @private
-   */
-  private bindEvents(): void {
-    const nextButton =
-      document.querySelector<HTMLButtonElement>(".carousel-next");
-    const prevButton =
-      document.querySelector<HTMLButtonElement>(".carousel-prev");
-
-    if (nextButton) {
-      nextButton.onclick = () => this.nextItem();
-    }
-    if (prevButton) {
-      prevButton.onclick = () => this.prevItem();
-    }
+  public nextItem() {
+    this.#currentIndex++;
+    this.layout();
   }
 
-  /**
-   * 切換到下一個項目
-   * 將當前索引增加1並重新佈局
-   * @public
-   */
-  public nextItem(): void {
-    this.#currentIndex = this.#currentIndex + 1;
-    this.layoutItems();
-  }
-
-  /**
-   * 切換到上一個項目
-   * 將當前索引減少1並重新佈局
-   * @public
-   */
-  public prevItem(): void {
-    this.#currentIndex = this.#currentIndex - 1 + this.items.length;
-    this.layoutItems();
+  public prevItem() {
+    this.#currentIndex--;
+    this.layout();
   }
 
   set currentIndex(index: number) {
     this.#currentIndex = index;
-    this.layoutItems();
-    return;
+    this.layout();
   }
   get currentIndex() {
     return this.#currentIndex;
+  }
+  autoPlay(interval: number = 3000, reverse: boolean = false) {
+    setInterval(() => {
+      if (reverse) {
+        this.prevItem();
+      } else {
+        this.nextItem();
+      }
+    }, interval);
   }
 }

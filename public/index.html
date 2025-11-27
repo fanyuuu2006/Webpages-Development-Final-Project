@@ -23,7 +23,7 @@
           />
         </div>
         <nav class="ml-auto text-2xl font-bold whitespace-nowrap">
-          <ul class="flex gap-4">
+          <ul class="flex gap-4 md:gap-6 lg:gap-8">
             <li><a href="/">首頁</a></li>
             <li><a href="/movie">電影</a></li>
             <li><a href="/booking">線上訂票</a></li>
@@ -33,23 +33,15 @@
     </header>
     <main class="mt-24">
       <section>
-        <div class="carousel-container w-full h-[50vh]">
-          <div class="carousel-item">
-            <div class="w-full h-full bg-red-500"></div>
+        <div class="carousel__container">
+          <div class="carousel__slide hidden">
+            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1bMJdRB8uerQZfGYINzBI9Vaw32bZljl2" class="w-full h-full object-cover"></div>
+            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/19NMnVgcb-9IsknNcfe9TpCyPBIcGnhQU" class="w-full h-full object-cover"></div>
+            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56" class="w-full h-full object-cover"></div>
+            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1yUVDEhdn2km1qt5TUJirjQWHQ9aaI6Yn" class="w-full h-full object-cover"></div>
+            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1BYT6p4x3DAEMOC_d5SMJLu1hERzNdhJ7" class="w-full h-full object-cover"></div>
           </div>
-          <div class="carousel-item">
-            <div class="w-full h-full bg-yellow-500"></div>
-          </div>
-          <div class="carousel-item">
-            <div class="w-full h-full bg-green-500"></div>
-          </div>
-          <div class="carousel-item">
-            <div class="w-full h-full bg-blue-500"></div>
-          </div>
-          <div class="carousel-item">
-            <div class="w-full h-full bg-purple-500"></div>
-          </div>
-          <button class="carousel-prev btn">
+          <button class="carousel__nav prev btn">
             <svg
               viewBox="64 64 896 896"
               focusable="false"
@@ -64,7 +56,7 @@
               ></path>
             </svg>
           </button>
-          <button class="carousel-next btn">
+          <button class="carousel__nav next btn">
             <svg
               viewBox="64 64 896 896"
               focusable="false"
