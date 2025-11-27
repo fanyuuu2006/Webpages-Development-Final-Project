@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="/styles/globals.css" />
     <link rel="stylesheet" href="/styles/carousel.css" />
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <header
-      class="fixed top-0 w-full h-24 z-[9999] bg-[var(--background-color)] shadow-lg"
+      class="fixed top-0 w-full h-24 z-[9999] bg-[var(--background-color-tertiary)] shadow-lg"
     >
       <div class="container flex items-center h-full">
         <!-- 替換logo圖片 -->
@@ -31,15 +31,40 @@
         </nav>
       </div>
     </header>
-    <main class="mt-24">
+    <main class="mt-24 flex-1">
       <section>
-        <div class="carousel__container">
+        <div class="carousel__container text-base md:text-lg">
           <div class="carousel__slide hidden">
-            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1bMJdRB8uerQZfGYINzBI9Vaw32bZljl2" class="w-full h-full object-cover"></div>
-            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/19NMnVgcb-9IsknNcfe9TpCyPBIcGnhQU" class="w-full h-full object-cover"></div>
-            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56" class="w-full h-full object-cover"></div>
-            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1yUVDEhdn2km1qt5TUJirjQWHQ9aaI6Yn" class="w-full h-full object-cover"></div>
-            <div class="w-full h-full"><img src="https://fanyu.vercel.app/api/album/item/1BYT6p4x3DAEMOC_d5SMJLu1hERzNdhJ7" class="w-full h-full object-cover"></div>
+            <div class="w-full h-full">
+              <img
+                src="https://fanyu.vercel.app/api/album/item/1bMJdRB8uerQZfGYINzBI9Vaw32bZljl2"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="w-full h-full">
+              <img
+                src="https://fanyu.vercel.app/api/album/item/19NMnVgcb-9IsknNcfe9TpCyPBIcGnhQU"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="w-full h-full">
+              <img
+                src="https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="w-full h-full">
+              <img
+                src="https://fanyu.vercel.app/api/album/item/1yUVDEhdn2km1qt5TUJirjQWHQ9aaI6Yn"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="w-full h-full">
+              <img
+                src="https://fanyu.vercel.app/api/album/item/1BYT6p4x3DAEMOC_d5SMJLu1hERzNdhJ7"
+                class="w-full h-full object-cover"
+              />
+            </div>
           </div>
           <button class="carousel__nav prev btn">
             <svg
@@ -74,8 +99,19 @@
         </div>
         <div class="container"></div>
       </section>
+      <section>
+        <div class="container">
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="footer bg-[var(--background-color-tertiary)] border-[var(--border-color)]">
+      <div class="container text-center py-8">
+        <div class="footer-content">
+          <p class="text-lg mb-2">&copy; 2025 XX影城. All rights reserved.</p>
+          <p class="text-sm text-[var(--text-color-muted)]">為您帶來最棒的觀影體驗</p>
+        </div>
+      </div>
+    </footer>
   </body>
   <script type="module" src="/scripts/dist/index.js"></script>
 </html>

@@ -1,20 +1,36 @@
 :root {
-  /* === 顏色系統 === */
-  --background-color: #0a0a0a;
-  --background-color-primary: #313131;
-  --background-color-secondary: #171717;
-  --background-color-tertiary: #0f0f0f;
+  /* 背景色系 - 現代深色主題 */
+  --background-color: #0d1117;
+  --background-color-primary: #161b22;
+  --background-color-secondary: #21262d;
+  --background-color-tertiary: #010409;
+  --background-color-glass: rgba(33, 38, 45, 0.85);
 
-  --text-color: #ffffff;
-  --text-color-primary: #4aaeff;
-  --text-color-secondary: #a071ff;
-  --text-color-tertiary: #22c55e;
-  --text-color-quaternary: #f59e0b;
-  --text-color-muted: #aaaaaa;
+  /* 主要品牌色彩 - 現代藍綠色系 */
+  --brand-primary: #58a6ff;
+  --brand-secondary: #1f6feb;
+  --brand-tertiary: #238636;
+  --brand-accent: #f85149;
 
-  --border-color: #333333cc;
-  --border-color-light: #525252;
-  --border-color-focus: var(--text-color-primary);
+  /* 文字色系 */
+  --text-color: #f0f6fc;
+  --text-color-primary: #79c0ff;
+  --text-color-secondary: #7dd3fc;
+  --text-color-tertiary: #a5f3fc;
+  --text-color-quaternary: #fbbf24;
+  --text-color-muted: #8b949e;
+  --text-color-dark: #30363d;
+
+  /* 邊框色系 */
+  --border-color: rgba(139, 148, 158, 0.15);
+  --border-color-light: rgba(139, 148, 158, 0.25);
+  --border-color-focus: var(--brand-primary);
+
+  /* 漸層色彩 */
+  --gradient-primary: linear-gradient(135deg, #58a6ff, #1f6feb);
+  --gradient-secondary: linear-gradient(135deg, #238636, #2ea043);
+  --gradient-accent: linear-gradient(135deg, #f85149, #ff6b6b);
+  --gradient-dark: linear-gradient(135deg, #161b22, #0d1117);
 
   /* === 效果參數 === */
   --brightness-light: 1.2;
@@ -34,6 +50,15 @@
   --container-max-width: 1280px;
   --scroll-margin: 6rem;
   --move-y: 0.5rem;
+
+  /* === 玻璃效果 === */
+  --glass-blur: blur(20px);
+  --glass-opacity: 0.8;
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* === 發光效果 === */
+  --glow-primary: 0 0 20px rgba(88, 166, 255, 0.4);
+  --glow-secondary: 0 0 20px rgba(35, 134, 54, 0.4);
 }
 
 /* === 全域重置 === */
@@ -55,7 +80,8 @@ html {
 body {
   height: 100%;
   color: var(--text-color);
-  background: var(--background-color);
+  background: var(--gradient-dark);
+  background-attachment: fixed;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
   line-height: 1.6;
@@ -116,29 +142,27 @@ button:active::before,
 }
 
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--text-color-primary),
-    var(--text-color-secondary)
-  );
+  background: var(--gradient-primary);
   box-shadow: var(--shadow-base);
   color: white;
   border: none;
+  font-weight: 600;
 }
 
 .btn-secondary {
-  background: linear-gradient(
-    135deg,
-    var(--text-color-primary),
-    var(--text-color-tertiary)
-  );
+  background: var(--gradient-secondary);
   box-shadow: var(--shadow-base);
+  color: white;
+  border: none;
+  font-weight: 600;
 }
 
 .btn-tertiary {
-  color: var(--text-color-primary);
-  background: var(--background-color-primary);
-  border: 2px solid var(--text-color-primary);
+  color: var(--brand-primary);
+  background: var(--background-color-glass);
+  border: 2px solid var(--brand-primary);
+  backdrop-filter: blur(10px);
+  font-weight: 500;
 }
 
 button:hover,
@@ -198,7 +222,8 @@ button:disabled,
 
 /* === 卡片系統 === */
 .card {
-  background: var(--background-color-secondary);
+  background: var(--background-color-glass);
+  backdrop-filter: blur(15px);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-base);
@@ -207,14 +232,33 @@ button:disabled,
   overflow: hidden;
 }
 
-.card:hover {
-  box-shadow: var(--shadow-hover);
-  border-color: var(--border-color-light);
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  transition: left var(--transition-slow) ease;
+  z-index: -1;
 }
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(88, 166, 255, 0.25);
+  border-color: var(--brand-primary);
+  transform: translateY(-5px);
+}
+
+.card:hover::before {
+  left: 0;
+}
+
 a.card:hover {
   transform: translateY(calc(-1 * var(--move-y)));
-  border-color: var(--text-color-primary);
-  box-shadow: var(--shadow-card-hover);
+  border-color: var(--brand-primary);
+  box-shadow: 0 20px 40px rgba(88, 166, 255, 0.3);
   text-decoration: none;
 }
 
@@ -298,7 +342,8 @@ a:focus-visible {
   content: attr(data-tooltip);
   width: max-content;
   max-width: 200px;
-  background: var(--background-color-secondary);
+  background: var(--background-color-glass);
+  backdrop-filter: blur(15px);
   border: var(--border-color) 1px solid;
   padding: 0.5rem 0.75rem;
   border-radius: var(--border-radius-sm);

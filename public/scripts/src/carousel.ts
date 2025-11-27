@@ -1,3 +1,12 @@
+/**
+ * Carousel 輪播元件
+ * @description 一個簡單的 Carousel 輪播元件，支援自動播放與手動導航功能。
+ * @example
+ * ```ts
+ * const carousel = new Carousel(".carousel__container", ".carousel__slide");
+ * carousel.autoPlay(5000);
+ * ```
+ */
 export class Carousel {
   #currentIndex: number = 0;
   private carouselContainer: HTMLElement | null;
@@ -80,8 +89,8 @@ export class Carousel {
 
     this.dots.forEach((dot, index) => {
       const offset = index - fixedIndex;
-      dot.classList.toggle("active", index === fixedIndex);
       dot.style.transform = `translateX(${offset * 1}rem)`;
+      dot.style.opacity = `${1 - Math.min(Math.abs(offset) * 0.3, 0.7)}`;
     });
 
     this.carouselContainer?.setAttribute("data-index", fixedIndex.toString());
@@ -104,7 +113,7 @@ export class Carousel {
   get currentIndex() {
     return this.#currentIndex;
   }
-  autoPlay(interval: number = 3000, reverse: boolean = false) {
+  public autoPlay(interval: number = 3000, reverse: boolean = false) {
     setInterval(() => {
       if (reverse) {
         this.prevItem();
