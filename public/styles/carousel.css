@@ -1,0 +1,27 @@
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-item {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: transform var(--transition-normal) ease-in-out;
+}
+.carousel-prev,
+.carousel-next {
+  background: var(--background-color-secondary);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.75rem;
+  border-radius: 100%;
+  z-index: 10;
+}
+.carousel-prev {
+  left: 1rem;
+}
+.carousel-next {
+  right: 1rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XX影城</title>
+    <!-- 使用 tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles/globals.css" />
+    <link rel="stylesheet" href="/styles/carousel.css" />
+  </head>
+  <body>
+    <header
+      class="fixed top-0 w-full h-24 z-[9999] bg-[var(--background-color)] shadow-lg"
+    >
+      <div class="container flex items-center h-full">
+        <!-- 替換logo圖片 -->
+        <div class="h-full w-auto">
+          <img
+            src="https://www.ambassador.com.tw/images/logo@2x.png"
+            alt="Logo"
+            class="h-full object-contain"
+          />
+        </div>
+        <nav class="ml-auto text-2xl font-bold whitespace-nowrap">
+          <ul class="flex gap-4">
+            <li><a href="/">首頁</a></li>
+            <li><a href="/movie">電影</a></li>
+            <li><a href="/booking">線上訂票</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="mt-24">
+      <section>
+        <div class="carousel-container w-full h-[50vh]">
+          <div class="carousel-item">
+            <div class="w-full h-full bg-red-500"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="w-full h-full bg-yellow-500"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="w-full h-full bg-green-500"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="w-full h-full bg-blue-500"></div>
+          </div>
+          <button class="carousel-prev btn">
+            <svg
+              viewBox="64 64 896 896"
+              focusable="false"
+              data-icon="left"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              ></path>
+            </svg>
+          </button>
+          <button class="carousel-next btn">
+            <svg
+              viewBox="64 64 896 896"
+              focusable="false"
+              data-icon="right"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="container"></div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="/scripts/dist/index.js"></script>
+</html>
