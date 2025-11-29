@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XX影城</title>
+    <title>星光影城 - 最佳觀影體驗</title>
     <!-- 使用 tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/styles/globals.css" />
@@ -14,13 +14,11 @@
       class="fixed top-0 w-full h-24 z-[9999] bg-[var(--background-color-tertiary)] shadow-lg"
     >
       <div class="container flex items-center h-full">
-        <!-- 替換logo圖片 -->
-        <div class="h-full w-auto">
-          <img
-            src="https://www.ambassador.com.tw/images/logo@2x.png"
-            alt="Logo"
-            class="h-full object-contain"
-          />
+        <!-- Logo -->
+        <div class="h-full w-auto flex items-center">
+          <div class="text-2xl font-bold text-[var(--brand-primary)]">
+            🎬 星光影城
+          </div>
         </div>
         <nav class="ml-auto text-2xl font-bold whitespace-nowrap">
           <ul class="flex gap-4 md:gap-6 lg:gap-8">
@@ -32,40 +30,10 @@
       </div>
     </header>
     <main class="mt-24 flex-1">
-      <section>
+      <!-- 輪播橫幅 -->
+      <section class="relative">
         <div class="carousel__container text-base md:text-lg">
-          <div class="carousel__slide hidden">
-            <div class="w-full h-full">
-              <img
-                src="https://fanyu.vercel.app/api/album/item/1bMJdRB8uerQZfGYINzBI9Vaw32bZljl2"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="w-full h-full">
-              <img
-                src="https://fanyu.vercel.app/api/album/item/19NMnVgcb-9IsknNcfe9TpCyPBIcGnhQU"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="w-full h-full">
-              <img
-                src="https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="w-full h-full">
-              <img
-                src="https://fanyu.vercel.app/api/album/item/1yUVDEhdn2km1qt5TUJirjQWHQ9aaI6Yn"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="w-full h-full">
-              <img
-                src="https://fanyu.vercel.app/api/album/item/1BYT6p4x3DAEMOC_d5SMJLu1hERzNdhJ7"
-                class="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+          <div class="carousel__slide hidden"></div>
           <button class="carousel__nav prev btn">
             <svg
               viewBox="64 64 896 896"
@@ -97,18 +65,395 @@
             </svg>
           </button>
         </div>
-        <div class="container"></div>
       </section>
-      <section>
-        <div class="container">
+
+      <!-- 熱門電影區域 -->
+      <section class="py-16 bg-[var(--background-color-primary)]">
+        <div class="container px-4 sm:px-6">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-color-primary)]"
+          >
+            熱門電影
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 電影卡片 1 -->
+            <div class="card group cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(88,166,255,0.2)]">
+              <div class="relative overflow-hidden rounded-t-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=400&h=600&fit=crop&crop=center"
+                  alt="阿凡達：水之道"
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div
+                  class="absolute top-2 right-2 bg-[var(--brand-accent)] text-white px-2 py-1 rounded-full text-sm font-semibold"
+                >
+                  熱映中
+                </div>
+              </div>
+              <div class="p-4">
+                <h3
+                  class="text-lg font-bold mb-2 text-[var(--text-color-primary)]"
+                >
+                  阿凡達：水之道
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-3">
+                  傑克·薩利一家在潘朵拉星球上的全新冒險，探索海洋世界的神秘與美麗。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm text-[var(--text-color-quaternary)] font-semibold"
+                    >上映中</span
+                  >
+                  <button class="btn-tertiary px-4 py-2 rounded-full text-sm">
+                    訂票
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 電影卡片 2 -->
+            <div class="card group cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(88,166,255,0.2)]">
+              <div class="relative overflow-hidden rounded-t-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop&crop=center"
+                  alt="雷神索爾：愛與雷電"
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div
+                  class="absolute top-2 right-2 bg-[var(--brand-accent)] text-white px-2 py-1 rounded-full text-sm font-semibold"
+                >
+                  熱映中
+                </div>
+              </div>
+              <div class="p-4">
+                <h3
+                  class="text-lg font-bold mb-2 text-[var(--text-color-primary)]"
+                >
+                  雷神索爾：愛與雷電
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-3">
+                  雷神索爾踏上了一段前所未有的旅程：尋找內心的平靜。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm text-[var(--text-color-quaternary)] font-semibold"
+                    >上映中</span
+                  >
+                  <button class="btn-tertiary px-4 py-2 rounded-full text-sm">
+                    訂票
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 電影卡片 3 -->
+            <div class="card group cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(88,166,255,0.2)]">
+              <div class="relative overflow-hidden rounded-t-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400&h=600&fit=crop&crop=center"
+                  alt="蜘蛛人：穿越新宇宙"
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div
+                  class="absolute top-2 right-2 bg-[var(--brand-tertiary)] text-white px-2 py-1 rounded-full text-sm font-semibold"
+                >
+                  即將上映
+                </div>
+              </div>
+              <div class="p-4">
+                <h3
+                  class="text-lg font-bold mb-2 text-[var(--text-color-primary)]"
+                >
+                  蜘蛛人：穿越新宇宙
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-3">
+                  邁爾斯·摩拉斯將在蜘蛛宇宙中展開全新的冒險之旅。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm text-[var(--text-color-quaternary)] font-semibold"
+                    >12/15 上映</span
+                  >
+                  <button class="btn-tertiary px-4 py-2 rounded-full text-sm">
+                    預售
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 電影卡片 4 -->
+            <div class="card group cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(88,166,255,0.2)]">
+              <div class="relative overflow-hidden rounded-t-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=400&h=600&fit=crop&crop=center"
+                  alt="玩具總動員：巴斯光年"
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div
+                  class="absolute top-2 right-2 bg-[var(--brand-tertiary)] text-white px-2 py-1 rounded-full text-sm font-semibold"
+                >
+                  即將上映
+                </div>
+              </div>
+              <div class="p-4">
+                <h3
+                  class="text-lg font-bold mb-2 text-[var(--text-color-primary)]"
+                >
+                  玩具總動員：巴斯光年
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-3">
+                  巴斯光年的起源故事，一位太空騎警的英雄之旅。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm text-[var(--text-color-quaternary)] font-semibold"
+                    >12/22 上映</span
+                  >
+                  <button class="btn-tertiary px-4 py-2 rounded-full text-sm">
+                    預售
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-8">
+            <a href="/movie" class="btn-primary px-8 py-3 rounded-full">
+              查看更多電影
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 影城特色 -->
+      <section class="py-16 bg-[var(--background-color)]">
+        <div class="container px-4 sm:px-6">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-color-primary)]"
+          >
+            影城特色
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 特色 1 -->
+            <div class="card text-center p-8">
+              <div
+                class="w-16 h-16 bg-[var(--brand-primary)] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
+              >
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM8.5 16L12 13.5 15.5 16 12 18.5 8.5 16z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold mb-4 text-[var(--text-color-primary)]"
+              >
+                IMAX 巨幕廳
+              </h3>
+              <p class="text-[var(--text-color-muted)]">
+                配備最先進的IMAX放映技術，提供沉浸式的觀影體驗，讓您彷彿置身電影世界。
+              </p>
+            </div>
+
+            <!-- 特色 2 -->
+            <div class="card text-center p-8">
+              <div
+                class="w-16 h-16 bg-[var(--brand-secondary)] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
+              >
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7 6v12l10-6z" />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold mb-4 text-[var(--text-color-primary)]"
+              >
+                杜比全景聲
+              </h3>
+              <p class="text-[var(--text-color-muted)]">
+                採用杜比全景聲音響系統，360度環繞音效讓每個座位都是最佳聽覺體驗。
+              </p>
+            </div>
+
+            <!-- 特色 3 -->
+            <div class="card text-center p-8">
+              <div
+                class="w-16 h-16 bg-[var(--brand-tertiary)] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
+              >
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold mb-4 text-[var(--text-color-primary)]"
+              >
+                豪華座椅
+              </h3>
+              <p class="text-[var(--text-color-muted)]">
+                全電動調節真皮座椅，可180度平躺，配備個人燈光控制和USB充電插座。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 最新消息與活動 -->
+      <section class="py-16 bg-[var(--background-color-secondary)]">
+        <div class="container px-4 sm:px-6">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-color-primary)]"
+          >
+            最新消息
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 消息 1 -->
+            <div class="card overflow-hidden transition-all duration-300 ease-linear hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)]">
+              <img
+                src="https://fanyu.vercel.app/api/album/item/11-SlewLvFImPDCP80UvfXmujlPb94eKw?retry=0"
+                alt="聖誕特惠活動"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex items-center mb-2">
+                  <span
+                    class="bg-[var(--brand-accent)] text-white px-2 py-1 rounded text-xs font-semibold"
+                    >活動</span
+                  >
+                  <span class="text-xs text-[var(--text-color-muted)] ml-2"
+                    >2025/11/29</span
+                  >
+                </div>
+                <h3
+                  class="text-lg font-bold mb-3 text-[var(--text-color-primary)]"
+                >
+                  聖誕特惠週 買二送一
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-4">
+                  聖誕節期間，任選兩部電影即可免費獲得第三部電影票券，與家人朋友共享溫馨時光。
+                </p>
+                <button
+                  class="text-[var(--brand-primary)] font-semibold text-sm"
+                >
+                  了解更多 →
+                </button>
+              </div>
+            </div>
+
+            <!-- 消息 2 -->
+            <div class="card overflow-hidden transition-all duration-300 ease-linear hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)]">
+              <img
+                src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&h=200&fit=crop&crop=center"
+                alt="會員制度升級"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex items-center mb-2">
+                  <span
+                    class="bg-[var(--brand-primary)] text-white px-2 py-1 rounded text-xs font-semibold"
+                    >公告</span
+                  >
+                  <span class="text-xs text-[var(--text-color-muted)] ml-2"
+                    >2025/11/25</span
+                  >
+                </div>
+                <h3
+                  class="text-lg font-bold mb-3 text-[var(--text-color-primary)]"
+                >
+                  會員制度全新升級
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-4">
+                  全新的會員積分制度上線，觀影累積積分可兌換免費票券、爆米花和飲料。
+                </p>
+                <button
+                  class="text-[var(--brand-primary)] font-semibold text-sm"
+                >
+                  了解更多 →
+                </button>
+              </div>
+            </div>
+
+            <!-- 消息 3 -->
+            <div class="card overflow-hidden transition-all duration-300 ease-linear hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)]">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop&crop=center"
+                alt="新廳開幕"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex items-center mb-2">
+                  <span
+                    class="bg-[var(--brand-tertiary)] text-white px-2 py-1 rounded text-xs font-semibold"
+                    >新聞</span
+                  >
+                  <span class="text-xs text-[var(--text-color-muted)] ml-2"
+                    >2025/11/20</span
+                  >
+                </div>
+                <h3
+                  class="text-lg font-bold mb-3 text-[var(--text-color-primary)]"
+                >
+                  VIP豪華廳盛大開幕
+                </h3>
+                <p class="text-sm text-[var(--text-color-muted)] mb-4">
+                  全新VIP豪華廳正式開放，提供頂級觀影體驗，包含專屬服務和精緻餐點。
+                </p>
+                <button
+                  class="text-[var(--brand-primary)] font-semibold text-sm"
+                >
+                  了解更多 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 快速訂票區 -->
+      <section class="py-16 bg-[var(--gradient-primary)]">
+        <div class="container px-4 sm:px-6 text-center">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white">
+            立即享受精彩電影時光
+          </h2>
+          <p class="text-base sm:text-lg md:text-xl mb-8 text-white opacity-90">
+            選擇您喜愛的電影，預訂最佳座位，開始您的觀影之旅
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-white text-[var(--brand-primary)] px-8 py-3 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all"
+            >
+              線上訂票
+            </button>
+            <button
+              class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-[var(--brand-primary)] transition-all"
+            >
+              查看時刻表
+            </button>
+          </div>
         </div>
       </section>
     </main>
-    <footer class="footer bg-[var(--background-color-tertiary)] border-[var(--border-color)]">
-      <div class="container text-center py-8">
+    <footer
+      class="footer bg-[var(--background-color-tertiary)] border-[var(--border-color)]"
+    >
+      <div class="container px-4 sm:px-6 text-center py-8">
         <div class="footer-content">
-          <p class="text-lg mb-2">&copy; 2025 XX影城. All rights reserved.</p>
-          <p class="text-sm text-[var(--text-color-muted)]">為您帶來最棒的觀影體驗</p>
+          <p class="text-lg mb-2">&copy; 2025 星光影城. All rights reserved.</p>
+          <p class="text-sm text-[var(--text-color-muted)]">
+            為您帶來最棒的觀影體驗
+          </p>
         </div>
       </div>
     </footer>
