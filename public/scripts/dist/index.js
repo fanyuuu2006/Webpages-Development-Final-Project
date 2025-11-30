@@ -28,6 +28,7 @@ const HERO_CAROUSEL_CONTAINER_SELECTOR = ".carousel__container";
 const HERO_CAROUSEL_SLIDE_SELECTOR = ".carousel__slide";
 const POPULAR_MOVIES_CONTAINER_SELECTOR = "#popular-movies";
 const NEWS_CONTAINER_SELECTOR = "#latest-news";
+const BOOKING_PAGE_URL = "http://35.189.180.230/user_search.php";
 // 統一的電影數據 - 同時用於輪播和熱門電影區域
 const moviesData = [
     {
@@ -151,9 +152,9 @@ slideTemplate.innerHTML = `
       <div class="flex flex-col items-center gap-3">
         <h2 class="movie-title text-4xl md:text-6xl font-bold"></h2>
         <span class="movie-slogan text-xl md:text-2xl"></span>
-        <button class="btn-primary px-8 py-3 rounded-full text-lg mt-2">
+        <a href="${BOOKING_PAGE_URL}" class="btn-primary px-8 py-3 rounded-full text-lg mt-2">
           立即訂票
-        </button>
+        </a>
       </div>
     </div>
   </div>
