@@ -32,82 +32,49 @@ const BOOKING_PAGE_URL = "http://35.189.180.230/user_search.php";
 // 統一的電影數據 - 同時用於輪播和熱門電影區域
 const moviesData = [
     {
-        name: "范余振富：叫我做什麼",
-        slogan: "震撼期末專案，即將被當",
-        src: "https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56?retry=0",
-        genre: "喜劇/動作",
-        rating: "PG-13",
-        releaseDate: "2025-12-01",
-        director: "范余導演",
+        name: "鬼滅の刃 猗窩座再臨",
+        slogan: "無限列車的續篇，炎柱煉獄杏壽郎與猗窩座的宿命對決",
+        src: "https://www.vscinemas.com.tw/upload/film/film_20250428011.jpg",
+        genre: "動畫/動作",
+        rating: "輔12+",
+        releaseDate: "2025-11-28",
+        director: "外崎春雄",
         status: "熱映中",
         statusType: "current"
     },
     {
-        name: "阿凡達：水之道",
-        slogan: "傑克·薩利一家在潘朵拉星球上的全新冒險，探索海洋世界的神秘與美麗。",
-        src: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=1920&h=800&fit=crop&crop=center",
-        genre: "科幻/冒險",
-        rating: "PG-13",
-        releaseDate: "2025-12-01",
-        director: "詹姆斯·卡麥隆",
-        status: "上映中",
-        statusType: "current"
-    },
-    {
-        name: "雷神索爾：愛與雷電",
-        slogan: "雷神索爾踏上了一段前所未有的旅程：尋找內心的平靜。",
-        src: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1920&h=800&fit=crop&crop=center",
-        genre: "動作/冒險",
-        rating: "PG-13",
-        releaseDate: "2025-12-05",
-        director: "塔伊加·維迪提",
-        status: "上映中",
-        statusType: "current"
-    },
-    {
-        name: "不可能的任務：致命清算",
-        slogan: "極限動作，絕地求生",
-        src: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1920&h=800&fit=crop&crop=center",
-        genre: "動作/驚悚",
-        rating: "PG-13",
-        releaseDate: "2025-12-10",
-        director: "克里斯多福·麥奎里",
-        status: "12/10 上映",
-        statusType: "upcoming"
-    },
-    {
-        name: "蜘蛛人：穿越新宇宙",
-        slogan: "邁爾斯·摩拉斯將在蜘蛛宇宙中展開全新的冒險之旅。",
-        src: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=1920&h=800&fit=crop&crop=center",
-        genre: "動畫/動作",
-        rating: "PG",
-        releaseDate: "2025-12-15",
-        director: "華金·多斯·桑托斯",
-        status: "12/15 上映",
-        statusType: "upcoming"
-    },
-    {
-        name: "玩具總動員：巴斯光年",
-        slogan: "巴斯光年的起源故事，一位太空騎警的英雄之旅。",
-        src: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=1920&h=800&fit=crop&crop=center",
+        name: "動物方程式2",
+        slogan: "茱蒂與尼克回歸！全新的動物城市冒險等著你",
+        src: "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20251103043.jpg",
         genre: "動畫/家庭",
-        rating: "G",
-        releaseDate: "2025-12-22",
-        director: "安格斯·麥克萊恩",
-        status: "12/22 上映",
-        statusType: "upcoming"
+        rating: "普0+",
+        releaseDate: "2025-11-26",
+        director: "拜倫·霍華德",
+        status: "熱映中",
+        statusType: "current"
     },
     {
-        name: "星際大戰：新希望重燃",
-        slogan: "原力覺醒，銀河系的最後希望",
-        src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=800&fit=crop&crop=center",
-        genre: "科幻/冒險",
-        rating: "PG-13",
-        releaseDate: "2025-12-25",
-        director: "瑞安·約翰遜",
-        status: "12/25 上映",
-        statusType: "upcoming"
+        name: "劇場版 咒術迴戰 澀谷事變×死滅迴游 先行上映",
+        slogan: "最強咒術師的宿命之戰，澀谷事變震撼登場",
+        src: "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20251027008.jpg",
+        genre: "動畫/動作",
+        rating: "輔12+",
+        releaseDate: "2025-11-14",
+        director: "朴性厚",
+        status: "熱映中",
+        statusType: "current"
     },
+    {
+        name: "鏈鉅人：蕾潔篇",
+        slogan: "進擊的巨人最終章，人類與巨人的最後戰役",
+        src: "https://www.vscinemas.com.tw/upload/film/film_20250815002.jpg",
+        genre: "動畫/劇情",
+        rating: "輔12+",
+        releaseDate: "2025-11-11",
+        director: "荒木哲郎",
+        status: "熱映中",
+        statusType: "current"
+    }
 ];
 // 最新消息與活動數據
 const newsData = [
