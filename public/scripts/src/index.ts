@@ -32,6 +32,7 @@ const HERO_CAROUSEL_SLIDE_SELECTOR = ".carousel__slide";
 const POPULAR_MOVIES_CONTAINER_SELECTOR = "#popular-movies";
 const NEWS_CONTAINER_SELECTOR = "#latest-news";
 
+
 // 統一的電影數據 - 同時用於輪播和熱門電影區域
 const moviesData: MovieItem[] = [
   {
