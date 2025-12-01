@@ -1,46 +1,117 @@
 .carousel__container {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   position: relative;
-  min-height: 400px;
+  min-height: 300px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 640px) {
   .carousel__container {
-    height: 75vh;
-    min-height: 300px;
+    height: 55vh;
+    min-height: 350px;
   }
 }
+
+@media (min-width: 768px) {
+  .carousel__container {
+    height: 60vh;
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel__container {
+    height: 65vh;
+    min-height: 450px;
+  }
+}
+
 .carousel__slide {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
 }
+
 .carousel__item {
   position: absolute;
   inset: 0;
   overflow: hidden;
   transition: transform var(--transition-normal) ease-in-out;
 }
+
 .carousel__nav {
   position: absolute;
   z-index: 10;
   box-shadow: var(--shadow-base);
+  opacity: 0.8;
+  transition: all var(--transition-normal) ease;
 }
+
+.carousel__nav:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
 .carousel__nav.btn {
-  background: var(--background-color-secondary);
+  background: var(--background-color-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
   top: 50%;
   transform: translateY(-50%);
-  padding: 0.5em;
-  border-radius: 100%;
+  padding: 0.4em;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+@media (min-width: 640px) {
+  .carousel__nav.btn {
+    width: 44px;
+    height: 44px;
+    padding: 0.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel__nav.btn {
+    width: 48px;
+    height: 48px;
+    padding: 0.6em;
+  }
+}
+
 .carousel__nav.prev {
-  left: 1rem;
+  left: 0.5rem;
 }
+
 .carousel__nav.next {
-  right: 1rem;
+  right: 0.5rem;
 }
+
+@media (min-width: 640px) {
+  .carousel__nav.prev {
+    left: 0.75rem;
+  }
+  
+  .carousel__nav.next {
+    right: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel__nav.prev {
+    left: 1rem;
+  }
+  
+  .carousel__nav.next {
+    right: 1rem;
+  }
+}
+
 .carousel__nav.dot {
   width: 0.5rem;
   height: 0.5rem;

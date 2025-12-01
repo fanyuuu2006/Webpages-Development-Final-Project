@@ -395,7 +395,7 @@ a:focus-visible {
 /* 響應式改進 */
 @media (max-width: 640px) {
   .container {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
   }
   
   .hero-banner h2 {
@@ -414,6 +414,35 @@ a:focus-visible {
   
   .grid {
     grid-template-columns: 1fr !important;
+  }
+  
+  .container {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* 觸控裝置優化 */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-base);
+  }
+  
+  .btn-primary:hover {
+    transform: none;
+    box-shadow: var(--shadow-base);
+  }
+  
+  .carousel__nav:hover {
+    transform: translateY(-50%);
+    opacity: 0.9;
+  }
+}
+
+/* 高解析度螢幕優化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .card {
+    backdrop-filter: blur(20px);
   }
 }
 

@@ -11,36 +11,60 @@
   </head>
   <body class="flex flex-col min-h-screen">
     <header
-      class="fixed top-0 w-full h-24 z-[9999] bg-[var(--background-color-tertiary)] shadow-lg"
+      class="fixed top-0 w-full h-16 sm:h-20 lg:h-24 z-[9999] bg-[var(--background-color-tertiary)] shadow-lg"
     >
-      <div class="container flex items-center h-full">
+      <div class="container flex items-center justify-between h-full px-4 sm:px-6">
         <!-- Logo -->
         <div class="h-full w-auto flex items-center">
-          <a href="/" class="text-2xl whitespace-nowrap font-bold text-[var(--brand-primary)]">
+          <a href="/" class="text-lg sm:text-xl lg:text-2xl whitespace-nowrap font-bold text-[var(--brand-primary)]">
             🎬 星光影城
           </a>
         </div>
-        <nav class="ml-auto text-2xl font-bold whitespace-nowrap">
-          <ul class="flex gap-4 md:gap-6 lg:gap-8">
-            <li><a href="/">首頁</a></li>
+        
+        <!-- 桌面導航 -->
+        <nav class="hidden md:block">
+          <ul class="flex gap-4 lg:gap-6 xl:gap-8 text-base lg:text-lg xl:text-xl font-semibold">
+            <li><a href="/" class="hover:text-[var(--brand-primary)] transition-colors">首頁</a></li>
             <li>
-              <a href="http://35.189.180.230/movie_direction.php">電影</a>
+              <a href="http://35.189.180.230/movie_direction.php" class="hover:text-[var(--brand-primary)] transition-colors">電影</a>
             </li>
             <li>
-              <a href="http://35.189.180.230/user_search.php">線上訂票</a>
+              <a href="http://35.189.180.230/user_search.php" class="hover:text-[var(--brand-primary)] transition-colors">線上訂票</a>
+            </li>
+          </ul>
+        </nav>
+        
+        <!-- 行動裝置選單按鈕 -->
+        <button class="md:hidden p-2" id="mobile-menu-btn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- 行動裝置選單 -->
+      <div class="md:hidden bg-[var(--background-color-tertiary)] border-t border-[var(--border-color)] hidden" id="mobile-menu">
+        <nav class="container px-4 py-4">
+          <ul class="space-y-3">
+            <li><a href="/" class="block py-2 text-base font-semibold hover:text-[var(--brand-primary)] transition-colors">首頁</a></li>
+            <li>
+              <a href="http://35.189.180.230/movie_direction.php" class="block py-2 text-base font-semibold hover:text-[var(--brand-primary)] transition-colors">電影</a>
+            </li>
+            <li>
+              <a href="http://35.189.180.230/user_search.php" class="block py-2 text-base font-semibold hover:text-[var(--brand-primary)] transition-colors">線上訂票</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-    <main class="mt-24 flex-1">
+    <main class="mt-16 sm:mt-20 lg:mt-24 flex-1">
       <!-- 輪播區塊 -->
-      <section class="relative">
-        <div class="carousel__container text-base md:text-lg">
+      <section class="relative w-full">
+        <div class="carousel__container text-sm sm:text-base lg:text-lg">
           <div class="carousel__slide hidden">
             <!-- 用JavaScript動態生成 -->
           </div>
-          <button class="carousel__nav prev btn">
+          <button class="carousel__nav prev btn" aria-label="上一張">
             <svg
               viewBox="64 64 896 896"
               focusable="false"
@@ -55,7 +79,7 @@
               ></path>
             </svg>
           </button>
-          <button class="carousel__nav next btn">
+          <button class="carousel__nav next btn" aria-label="下一張">
             <svg
               viewBox="64 64 896 896"
               focusable="false"
@@ -74,24 +98,24 @@
       </section>
 
       <!-- 熱門電影區域 -->
-      <section class="py-16 bg-[var(--background-color-primary)]">
+      <section class="py-8 sm:py-12 lg:py-16 bg-[var(--background-color-primary)]">
         <div class="container px-4 sm:px-6">
           <h2
-            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-color-primary)]"
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 lg:mb-12 text-[var(--text-color-primary)]"
           >
             熱門電影
           </h2>
           <div
             id="popular-movies"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6"
           >
             <!-- 電影卡片將由 JavaScript 動態生成 -->
           </div>
 
-          <div class="text-center mt-8">
+          <div class="text-center mt-6 sm:mt-8">
             <a
               href="http://35.189.180.230/movie_direction.php"
-              class="btn-primary px-8 py-3 rounded-full"
+              class="btn-primary px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base inline-block"
             >
               查看更多電影
             </a>
@@ -100,21 +124,21 @@
       </section>
 
       <!-- 影城特色 -->
-      <section class="py-16 bg-[var(--background-color)]">
+      <section class="py-8 sm:py-12 lg:py-16 bg-[var(--background-color)]">
         <div class="container px-4 sm:px-6">
           <h2
-            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-color-primary)]"
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 lg:mb-12 text-[var(--text-color-primary)]"
           >
             影城特色
           </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
             <!-- 特色 1 -->
-            <div class="card text-center p-8">
+            <div class="card text-center p-4 sm:p-6 lg:p-8">
               <div
-                class="w-16 h-16 bg-[var(--brand-primary)] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
+                class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[var(--brand-primary)] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 animate-pulse"
               >
                 <svg
-                  class="w-8 h-8 text-white"
+                  class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -124,22 +148,22 @@
                 </svg>
               </div>
               <h3
-                class="text-xl font-bold mb-4 text-[var(--text-color-primary)]"
+                class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[var(--text-color-primary)]"
               >
                 IMAX 巨幕廳
               </h3>
-              <p class="text-[var(--text-color-muted)]">
+              <p class="text-sm sm:text-base text-[var(--text-color-muted)] leading-relaxed">
                 配備最先進的IMAX放映技術，提供沉浸式的觀影體驗，讓您彷彿置身電影世界。
               </p>
             </div>
 
             <!-- 特色 2 -->
-            <div class="card text-center p-8">
+            <div class="card text-center p-4 sm:p-6 lg:p-8">
               <div
-                class="w-16 h-16 bg-[var(--brand-secondary)] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
+                class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[var(--brand-secondary)] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 animate-pulse"
               >
                 <svg
-                  class="w-8 h-8 text-white"
+                  class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -147,22 +171,22 @@
                 </svg>
               </div>
               <h3
-                class="text-xl font-bold mb-4 text-[var(--text-color-primary)]"
+                class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[var(--text-color-primary)]"
               >
                 杜比全景聲
               </h3>
-              <p class="text-[var(--text-color-muted)]">
+              <p class="text-sm sm:text-base text-[var(--text-color-muted)] leading-relaxed">
                 採用杜比全景聲音響系統，360度環繞音效讓每個座位都是最佳聽覺體驗。
               </p>
             </div>
 
             <!-- 特色 3 -->
-            <div class="card text-center p-8">
+            <div class="card text-center p-4 sm:p-6 lg:p-8">
               <div
-                class="w-16 h-16 bg-[var(--brand-tertiary)] rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
+                class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[var(--brand-tertiary)] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 animate-pulse"
               >
                 <svg
-                  class="w-8 h-8 text-white"
+                  class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -172,11 +196,11 @@
                 </svg>
               </div>
               <h3
-                class="text-xl font-bold mb-4 text-[var(--text-color-primary)]"
+                class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[var(--text-color-primary)]"
               >
                 豪華座椅
               </h3>
-              <p class="text-[var(--text-color-muted)]">
+              <p class="text-sm sm:text-base text-[var(--text-color-muted)] leading-relaxed">
                 全電動調節真皮座椅，可180度平躺，配備個人燈光控制和USB充電插座。
               </p>
             </div>
@@ -185,16 +209,16 @@
       </section>
 
       <!-- 最新消息與活動 -->
-      <section class="py-16 bg-[var(--background-color-secondary)]">
+      <section class="py-8 sm:py-12 lg:py-16 bg-[var(--background-color-secondary)]">
         <div class="container px-4 sm:px-6">
           <h2
-            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-color-primary)]"
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 lg:mb-12 text-[var(--text-color-primary)]"
           >
             最新消息
           </h2>
           <div
             id="latest-news"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6"
           >
             <!-- 新聞卡片將由 JavaScript 動態生成 -->
           </div>
@@ -202,25 +226,25 @@
       </section>
 
       <!-- 快速訂票區 -->
-      <section class="py-16 bg-[var(--gradient-primary)]">
+      <section class="py-8 sm:py-12 lg:py-16 bg-[var(--gradient-primary)]">
         <div class="container px-4 sm:px-6 text-center">
           <h2
-            class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white"
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white"
           >
             立即享受精彩電影時光
           </h2>
-          <p class="text-base sm:text-lg md:text-xl mb-8 text-white opacity-90">
+          <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-white opacity-90 max-w-2xl mx-auto">
             選擇您喜愛的電影，預訂最佳座位，開始您的觀影之旅
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
             <a
               href="http://35.189.180.230/user_search.php"
-              class="bg-white text-[var(--brand-primary)] px-8 py-3 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all"
+              class="w-full sm:w-auto bg-white text-[var(--brand-primary)] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg hover:bg-opacity-90 transition-all inline-block"
             >
               線上訂票
             </a>
             <a href="http://35.189.180.230/user_search.php"
-              class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-[var(--brand-primary)] transition-all"
+              class="w-full sm:w-auto border-2 border-white text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg hover:bg-white hover:text-[var(--brand-primary)] transition-all inline-block"
             >
               查看時刻表
             </a>
@@ -229,12 +253,12 @@
       </section>
     </main>
     <footer
-      class="footer bg-[var(--background-color-tertiary)] border-[var(--border-color)]"
+      class="footer bg-[var(--background-color-tertiary)] border-t border-[var(--border-color)]"
     >
-      <div class="container px-4 sm:px-6 text-center py-8">
+      <div class="container px-4 sm:px-6 text-center py-6 sm:py-8">
         <div class="footer-content">
-          <p class="text-lg mb-2">&copy; 2025 星光影城. All rights reserved.</p>
-          <p class="text-sm text-[var(--text-color-muted)]">
+          <p class="text-base sm:text-lg mb-2">&copy; 2025 星光影城. All rights reserved.</p>
+          <p class="text-xs sm:text-sm text-[var(--text-color-muted)]">
             為您帶來最棒的觀影體驗
           </p>
         </div>
@@ -242,4 +266,25 @@
     </footer>
   </body>
   <script type="module" src="/scripts/dist/index.js"></script>
+  <script>
+    // 行動裝置選單控制
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 點擊選單項目後自動關閉選單
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
 </html>
