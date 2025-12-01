@@ -33,7 +33,6 @@ const POPULAR_MOVIES_CONTAINER_SELECTOR = "#popular-movies";
 const NEWS_CONTAINER_SELECTOR = "#latest-news";
 const BOOKING_PAGE_URL = "http://35.189.180.230/user_search.php";
 
-
 // 統一的電影數據 - 同時用於輪播和熱門電影區域
 const moviesData: MovieItem[] = [
   {
@@ -45,7 +44,7 @@ const moviesData: MovieItem[] = [
     releaseDate: "2025-12-31",
     director: "神秘導演",
     status: "12/31 上映",
-    statusType: "upcoming"
+    statusType: "upcoming",
   },
   {
     name: "鬼滅の刃 猗窩座再臨",
@@ -56,7 +55,7 @@ const moviesData: MovieItem[] = [
     releaseDate: "2025-11-28",
     director: "外崎春雄",
     status: "熱映中",
-    statusType: "current"
+    statusType: "current",
   },
   {
     name: "動物方程式2",
@@ -67,7 +66,7 @@ const moviesData: MovieItem[] = [
     releaseDate: "2025-11-26",
     director: "拜倫·霍華德",
     status: "熱映中",
-    statusType: "current"
+    statusType: "current",
   },
   {
     name: "劇場版 咒術迴戰 澀谷事變×死滅迴游 先行上映",
@@ -78,7 +77,7 @@ const moviesData: MovieItem[] = [
     releaseDate: "2025-11-14",
     director: "朴性厚",
     status: "熱映中",
-    statusType: "current"
+    statusType: "current",
   },
   {
     name: "鏈鉅人：蕾潔篇",
@@ -89,9 +88,8 @@ const moviesData: MovieItem[] = [
     releaseDate: "2025-11-11",
     director: "荒木哲郎",
     status: "熱映中",
-    statusType: "current"
+    statusType: "current",
   },
-  
 ];
 
 // 最新消息與活動數據
@@ -99,33 +97,39 @@ const newsData: NewsItem[] = [
   {
     id: "christmas-special",
     title: "聖誕特惠週 買二送一",
-    content: "聖誕節期間，任選兩部電影即可免費獲得第三部電影票券，與家人朋友共享溫馨時光。",
+    content:
+      "聖誕節期間，任選兩部電影即可免費獲得第三部電影票券，與家人朋友共享溫馨時光。",
     category: "活動",
     categoryType: "activity",
     date: "2025/11/29",
-    image: "https://fanyu.vercel.app/api/album/item/11-SlewLvFImPDCP80UvfXmujlPb94eKw?retry=0",
-    alt: "聖誕特惠活動"
+    image:
+      "https://fanyu.vercel.app/api/album/item/11-SlewLvFImPDCP80UvfXmujlPb94eKw?retry=0",
+    alt: "聖誕特惠活動",
   },
   {
     id: "membership-upgrade",
     title: "會員制度全新升級",
-    content: "全新的會員積分制度上線，觀影累積積分可兌換免費票券、爆米花和飲料。",
+    content:
+      "全新的會員積分制度上線，觀影累積積分可兌換免費票券、爆米花和飲料。",
     category: "公告",
     categoryType: "announcement",
     date: "2025/11/25",
-    image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&h=200&fit=crop&crop=center",
-    alt: "會員制度升級"
+    image:
+      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&h=200&fit=crop&crop=center",
+    alt: "會員制度升級",
   },
   {
     id: "vip-hall-opening",
     title: "VIP豪華廳盛大開幕",
-    content: "全新VIP豪華廳正式開放，提供頂級觀影體驗，包含專屬服務和精緻餐點。",
+    content:
+      "全新VIP豪華廳正式開放，提供頂級觀影體驗，包含專屬服務和精緻餐點。",
     category: "新聞",
     categoryType: "news",
     date: "2025/11/20",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop&crop=center",
-    alt: "新廳開幕"
-  }
+    image:
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop&crop=center",
+    alt: "新廳開幕",
+  },
 ];
 
 // 輪播幻燈片模板
@@ -158,9 +162,9 @@ newsCardTemplate.innerHTML = `
       </div>
       <h3 class="news-title text-lg font-bold mb-3 text-[var(--text-color-primary)]"></h3>
       <p class="news-content text-sm text-[var(--text-color-muted)] mb-4"></p>
-      <button class="text-[var(--brand-primary)] font-semibold text-sm">
+      <a href="https://fanyu.vercel.app" target="_blank" class="text-[var(--brand-primary)] font-semibold text-sm">
         了解更多 →
-      </button>
+      </a>
     </div>
   </div>
 `;
@@ -181,8 +185,8 @@ movieCardTemplate.innerHTML = `
       </p>
       <div class="flex justify-between items-center">
         <span class="movie-release-status text-sm text-[var(--text-color-quaternary)] font-semibold"></span>
-        <button class="movie-booking-btn btn-tertiary px-4 py-2 rounded-full text-sm">
-        </button>
+        <a href="http://35.189.180.230/user_search.php" class="movie-booking-btn btn-tertiary px-4 py-2 rounded-full text-sm">
+        </a>
       </div>
     </div>
   </div>
@@ -289,7 +293,7 @@ function renderLatestNews(news: NewsItem[], container: HTMLElement) {
     // 設置分類標籤
     const category = newsCard.querySelector(".news-category") as HTMLElement;
     category.textContent = item.category;
-    
+
     // 根據分類類型設置不同的顏色
     switch (item.categoryType) {
       case "activity":
@@ -346,7 +350,9 @@ if (popularMoviesContainer) {
 }
 
 // 初始化最新消息區域
-const newsContainer = document.querySelector<HTMLElement>(NEWS_CONTAINER_SELECTOR);
+const newsContainer = document.querySelector<HTMLElement>(
+  NEWS_CONTAINER_SELECTOR
+);
 
 if (newsContainer) {
   renderLatestNews(newsData, newsContainer);
@@ -355,9 +361,9 @@ if (newsContainer) {
 // 添加 "查看更多電影" 按鈕的事件監聽
 const viewMoreBtn = document.querySelector('a[href="/movie"]');
 if (viewMoreBtn) {
-  viewMoreBtn.addEventListener('click', (e) => {
+  viewMoreBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log('跳轉到電影列表頁面');
+    console.log("跳轉到電影列表頁面");
     // 這裡可以添加路由邏輯或頁面跳轉
   });
 }
