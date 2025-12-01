@@ -30,7 +30,17 @@ const POPULAR_MOVIES_CONTAINER_SELECTOR = "#popular-movies";
 const NEWS_CONTAINER_SELECTOR = "#latest-news";
 const BOOKING_PAGE_URL = "http://35.189.180.230/user_search.php";
 // 統一的電影數據 - 同時用於輪播和熱門電影區域
-const moviesData = [
+const moviesData = [{
+        name: "動物方程式2",
+        slogan: "茱蒂與尼克回歸！全新的動物城市冒險等著你",
+        src: "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20251103043.jpg",
+        genre: "動畫/家庭",
+        rating: "普0+",
+        releaseDate: "2025-11-26",
+        director: "拜倫·霍華德",
+        status: "熱映中",
+        statusType: "current",
+    },
     {
         name: "飯魚奇遇記",
         slogan: "史上最神秘的奇幻冒險，超越時空的傳奇故事",
@@ -50,17 +60,6 @@ const moviesData = [
         rating: "輔12+",
         releaseDate: "2025-11-28",
         director: "外崎春雄",
-        status: "熱映中",
-        statusType: "current",
-    },
-    {
-        name: "動物方程式2",
-        slogan: "茱蒂與尼克回歸！全新的動物城市冒險等著你",
-        src: "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20251103043.jpg",
-        genre: "動畫/家庭",
-        rating: "普0+",
-        releaseDate: "2025-11-26",
-        director: "拜倫·霍華德",
         status: "熱映中",
         statusType: "current",
     },
