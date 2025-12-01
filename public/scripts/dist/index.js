@@ -74,6 +74,17 @@ const moviesData = [
         director: "荒木哲郎",
         status: "熱映中",
         statusType: "current"
+    },
+    {
+        name: "飯魚奇遇記",
+        slogan: "史上最神秘的奇幻冒險，超越時空的傳奇故事",
+        src: "https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56?retry=0",
+        genre: "奇幻/冒險",
+        rating: "18+",
+        releaseDate: "2025-12-31",
+        director: "神秘導演",
+        status: "12/31 上映",
+        statusType: "upcoming"
     }
 ];
 // 最新消息與活動數據

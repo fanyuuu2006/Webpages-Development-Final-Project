@@ -37,6 +37,17 @@ const BOOKING_PAGE_URL = "http://35.189.180.230/user_search.php";
 // 統一的電影數據 - 同時用於輪播和熱門電影區域
 const moviesData: MovieItem[] = [
   {
+    name: "飯魚奇遇記",
+    slogan: "史上最神秘的奇幻冒險，超越時空的傳奇故事",
+    src: "https://fanyu.vercel.app/api/album/item/1Zo_PjrXm-4TBrL2cLAeFkEl1el9kTR56?retry=0",
+    genre: "奇幻/冒險",
+    rating: "18+",
+    releaseDate: "2025-12-31",
+    director: "神秘導演",
+    status: "12/31 上映",
+    statusType: "upcoming"
+  },
+  {
     name: "鬼滅の刃 猗窩座再臨",
     slogan: "無限列車的續篇，炎柱煉獄杏壽郎與猗窩座的宿命對決",
     src: "https://www.vscinemas.com.tw/upload/film/film_20250428011.jpg",
@@ -79,7 +90,8 @@ const moviesData: MovieItem[] = [
     director: "荒木哲郎",
     status: "熱映中",
     statusType: "current"
-  }
+  },
+  
 ];
 
 // 最新消息與活動數據
